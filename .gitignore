@@ -1,0 +1,19 @@
+# сборка и локальные файлы
+build/
+.gradle/
+.kotlin/
+local.properties
+captures/
+
+# ключ подписи и пароли — только локально
+*.jks
+*.keystore
+keystore.properties
+
+# os
+Thumbs.db
+.DS_Store
+
+# ide
+.idea/
+*.iml

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Фон иконки. Тёмный сине-зелёный: спокойный, не «аптечный кислотный
+         зелёный», и капсула на нём читается белым силуэтом. -->
+    <color name="ic_launcher_background">#0B3B45</color>
+    <color name="window_background">#08181D</color>
+</resources>
