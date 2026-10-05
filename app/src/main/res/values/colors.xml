@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Фон иконки. Тёмный сине-зелёный: спокойный, не «аптечный кислотный
-         зелёный», и капсула на нём читается белым силуэтом. -->
-    <color name="ic_launcher_background">#0B3B45</color>
-    <color name="window_background">#08181D</color>
+    <!-- Фон иконки. Тёмный тёплый: он совпадает с фоном приложения по
+         умолчанию (палитра «Эспрессо» в «Дневнике давления»), поэтому значок
+         и окно приложения выглядят как одно, а не как два разных. -->
+    <color name="ic_launcher_background">#14100A</color>
+    <color name="window_background">#14100A</color>
 </resources>

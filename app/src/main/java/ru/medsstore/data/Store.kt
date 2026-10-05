@@ -94,9 +94,9 @@ class Settings(context: Context) {
         get() = prefs.getString("theme", "dark") ?: "dark"
         set(v) = prefs.edit().putString("theme", v).apply()
 
-    /** teal | indigo | amber | graphite */
+    /** espresso | graphite | tide | paper */
     var accent: String
-        get() = prefs.getString("accent", "teal") ?: "teal"
+        get() = prefs.getString("accent", "espresso") ?: "espresso"
         set(v) = prefs.edit().putString("accent", v).apply()
 
     var compact: Boolean

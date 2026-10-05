@@ -29,41 +29,55 @@ data class Palette(
     val lightAccent: Color,
     val dark: Boolean = true,
 ) {
-    /** Состояния срока годности не зависят от палитры: просроченное всегда
-     *  красное, иначе человек привыкает, что «зелёное» — значит «в норме». */
-    val danger: Color get() = if (dark) Color(0xFFE2606A) else Color(0xFFC0392B)
-    val warn: Color get() = if (dark) Color(0xFFE3AC52) else Color(0xFFB07514)
-    val ok: Color get() = if (dark) Color(0xFF62C0B2) else Color(0xFF0F7C70)
+    /**
+     * Состояния срока годности.
+     *
+     * Значения — из палитры «Дневника давления», чтобы «просрочено» и «скоро»
+     * выглядели одинаково в обоих приложениях. Просроченное всегда красное:
+     * иначе человек привыкает, что «зелёное» — значит «в норме».
+     */
+    val danger: Color get() = if (dark) Color(0xFFF28F8F) else Color(0xFFB3261E)
+    val warn: Color get() = if (dark) darkAccent else lightAccent
+    val ok: Color get() = if (dark) Color(0xFF9FD9A0) else Color(0xFF3F6B32)
 }
 
+/**
+ * Палитры — те же четыре, что в «Дневнике давления», с теми же цветами.
+ *
+ * Раньше здесь были свои четыре (Бирюза, Индиго, Янтарь, Графит). Названия
+ * «Графит» совпадал, остальные нет, и рядом друг с другом приложения выглядели
+ * как из разных семейств. Общего кода между приложениями нет и не будет: они
+ * собираются отдельно, поэтому палитры просто повторяются числами. При
+ * правке одной стороны правьте и другую.
+ */
 val palettes = listOf(
     Palette(
-        key = "teal", title = "Бирюза",
-        darkBg = Color(0xFF08181D), darkSurface = Color(0xFF0F242B), darkLine = Color(0xFF1B3540),
-        darkInk = Color(0xFFE6F0F2), darkMuted = Color(0xFF8AA5AC), darkAccent = Color(0xFF4FB3A5),
-        lightBg = Color(0xFFF2F7F7), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFDDE7E8),
-        lightInk = Color(0xFF10262B), lightMuted = Color(0xFF5B7680), lightAccent = Color(0xFF0F7C70),
-    ),
-    Palette(
-        key = "indigo", title = "Индиго",
-        darkBg = Color(0xFF0B0F1E), darkSurface = Color(0xFF141A2E), darkLine = Color(0xFF232B45),
-        darkInk = Color(0xFFE8EAF6), darkMuted = Color(0xFF939AB8), darkAccent = Color(0xFF8C97F8),
-        lightBg = Color(0xFFF4F5FB), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFDFE1EF),
-        lightInk = Color(0xFF171B33), lightMuted = Color(0xFF5C628A), lightAccent = Color(0xFF4451C8),
-    ),
-    Palette(
-        key = "amber", title = "Янтарь",
-        darkBg = Color(0xFF1A1408), darkSurface = Color(0xFF241C0D), darkLine = Color(0xFF3A2D14),
-        darkInk = Color(0xFFF4ECDD), darkMuted = Color(0xFFB3A183), darkAccent = Color(0xFFE3AC52),
-        lightBg = Color(0xFFFBF7EF), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFEDE3D0),
-        lightInk = Color(0xFF2A2113), lightMuted = Color(0xFF7C6A48), lightAccent = Color(0xFFB07514),
+        key = "espresso", title = "Эспрессо",
+        darkBg = Color(0xFF14100A), darkSurface = Color(0xFF1D1710), darkLine = Color(0xFF3A3126),
+        darkInk = Color(0xFFF4EAD9), darkMuted = Color(0xFFCBB89F), darkAccent = Color(0xFFEFA94A),
+        lightBg = Color(0xFFFAF4E8), lightSurface = Color(0xFFFFFDF8), lightLine = Color(0xFFDCCFB6),
+        lightInk = Color(0xFF241A0F), lightMuted = Color(0xFF6B5A44), lightAccent = Color(0xFF8A5A17),
     ),
     Palette(
         key = "graphite", title = "Графит",
-        darkBg = Color(0xFF101214), darkSurface = Color(0xFF181B1E), darkLine = Color(0xFF2A2F34),
-        darkInk = Color(0xFFE9ECEF), darkMuted = Color(0xFF98A2AC), darkAccent = Color(0xFFAEB9C3),
-        lightBg = Color(0xFFF5F6F7), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFE1E4E7),
-        lightInk = Color(0xFF1A1D20), lightMuted = Color(0xFF636C75), lightAccent = Color(0xFF4A5560),
+        darkBg = Color(0xFF0E1113), darkSurface = Color(0xFF171B1E), darkLine = Color(0xFF2E353C),
+        darkInk = Color(0xFFE8EDF0), darkMuted = Color(0xFF9AA5AE), darkAccent = Color(0xFFA8D84A),
+        lightBg = Color(0xFFF2F5F6), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFD3DADE),
+        lightInk = Color(0xFF16191C), lightMuted = Color(0xFF55606A), lightAccent = Color(0xFF4E6B12),
+    ),
+    Palette(
+        key = "tide", title = "Прилив",
+        darkBg = Color(0xFF07161A), darkSurface = Color(0xFF0E2026), darkLine = Color(0xFF22383C),
+        darkInk = Color(0xFFDCF2F2), darkMuted = Color(0xFF92B4B8), darkAccent = Color(0xFF4ED9C4),
+        lightBg = Color(0xFFEFF7F7), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFC9DCDE),
+        lightInk = Color(0xFF0B1F22), lightMuted = Color(0xFF46656A), lightAccent = Color(0xFF006A5E),
+    ),
+    Palette(
+        key = "paper", title = "Бумага",
+        darkBg = Color(0xFF1A1414), darkSurface = Color(0xFF241C1C), darkLine = Color(0xFF3E302E),
+        darkInk = Color(0xFFF6EAE8), darkMuted = Color(0xFFC6ACA8), darkAccent = Color(0xFFE08A7A),
+        lightBg = Color(0xFFFAF3F0), lightSurface = Color(0xFFFFFFFF), lightLine = Color(0xFFE7D5D0),
+        lightInk = Color(0xFF211715), lightMuted = Color(0xFF6E5550), lightAccent = Color(0xFF9C3A2B),
     ),
 )
 
