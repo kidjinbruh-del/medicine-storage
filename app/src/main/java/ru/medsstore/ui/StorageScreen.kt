@@ -284,15 +284,18 @@ private fun MedCard(
                     style = MaterialTheme.typography.labelMedium,
                 )
             }
-            if (med.storage.isNotBlank()) {
-                Spacer(Modifier.width(8.dp))
-                Text(
-                    med.storage,
-                    color = muted,
-                    style = MaterialTheme.typography.labelMedium,
-                    maxLines = 1,
-                )
-            }
+        }
+
+        // Условия хранения — отдельной строкой. Раньше они стояли в одном ряду с
+        // подписью и датой, и длинный текст вроде «комнатная t°» обрезался
+        // краем экрана: ряд не переносится, а текст молча уходил за границу.
+        if (med.storage.isNotBlank()) {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                "Хранение: " + med.storage,
+                color = muted,
+                style = MaterialTheme.typography.labelMedium,
+            )
         }
 
         if (med.howToUse.isNotBlank()) {
